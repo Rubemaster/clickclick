@@ -22,7 +22,7 @@
   full list of supported commands.
 }
 \author{
-  Rubemaster (package author); Carsten Bluem (author of the bundled
+  Ruben Gustaf Ingemar Rick (package author); Carsten Bluem (author of the bundled
   cliclick source, see \code{LICENSE})
 }
 \references{

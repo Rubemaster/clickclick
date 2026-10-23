@@ -7,10 +7,16 @@ Description: Control your keyboard and mouse with R code by simulating mouse
     built on top of the open-source 'cliclick' command-line tool
     <https://github.com/BlueM/cliclick>, compiled directly into the package
     and invoked in-process rather than as a subprocess.
-Author: Rubemaster [aut, cre], Carsten Bluem [aut, cph] (Author of the bundled 'cliclick' source)
-Maintainer: Rubemaster <RGRICK2@illinois.edu>
+Authors@R: c(person(given = c("Ruben", "Gustaf", "Ingemar"),
+                     family = "Rick",
+                     role = c("aut", "cre"),
+                     email = "ruben.rick@outlook.com"),
+              person(given = "Carsten",
+                     family = "Bluem",
+                     role = c("aut", "cph"),
+                     comment = "Author of the bundled 'cliclick' source"))
 License: file LICENSE
-OS_type: mac
+OS_type: unix
 SystemRequirements: macOS
 URL: https://github.com/Rubemaster/clickclick
 BugReports: https://github.com/Rubemaster/clickclick/issues
