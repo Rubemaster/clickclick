@@ -65,14 +65,11 @@
 }
 
 - (void)write:(NSString *)message {
-    if ([outputTarget isEqualToString:@"stdout"]) {
-        printf("%s\n", [message UTF8String]);
-        return;
-    }
-
-    if ([outputTarget isEqualToString:@"stderr"]) {
-        fprintf(stderr, "%s\n", [message UTF8String]);
-        return;
+    if ([outputTarget isEqualToString:@"stdout"] || [outputTarget isEqualToString:@"stderr"]) {
+        // Writing to the CLI's own stdout/stderr makes no sense when this is
+        // called in-process from R; use R's print()/cat() instead.
+        [NSException raise:@"UnsupportedActionException"
+                    format:@"Printing to %@ is not supported when called from R", outputTarget];
     }
 
     if ([outputTarget isEqualToString:@"clipboard"]) {

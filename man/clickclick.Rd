@@ -54,9 +54,12 @@ clickclick(cmd)
   }
 
   The upstream cliclick tool also provides \code{p}/\code{cp} (print the
-  current mouse position, or the color under a given point). \code{cp}
-  is \strong{not available} in this package, because it depends on
-  \code{CGWindowListCreateImage}, which Apple removed in macOS 15.
+  current mouse position, or the color under a given point). Neither is
+  available in this package: \code{cp} depends on
+  \code{CGWindowListCreateImage}, which Apple removed in macOS 15, and
+  \code{p} writes to the CLI's own stdout/stderr, which doesn't apply
+  when cliclick is called in-process from R. Both raise an error if
+  used.
 }
 \value{
   Invisibly returns \code{NULL}. The function is called for its side
