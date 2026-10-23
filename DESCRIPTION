@@ -1,0 +1,5 @@
+Package: clickclick
+Version: 0.1
+Title: Mouse and Keyboard Automation via cliclick
+Description: In-process bindings to cliclick's macOS mouse/keyboard event code.
+License: BSD_3_clause
