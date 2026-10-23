@@ -1,0 +1,15 @@
+#!/bin/sh
+# clickclick only works on macOS: it compiles Objective-C code that
+# links against the Cocoa and Carbon frameworks to simulate mouse and
+# keyboard input via CoreGraphics event APIs. Fail cleanly here rather
+# than letting the compiler fail obscurely on -framework flags that
+# don't exist on other platforms.
+
+if [ "$(uname -s)" != "Darwin" ]; then
+  echo "clickclick only supports macOS (it uses the Cocoa/Carbon frameworks" >&2
+  echo "to simulate mouse and keyboard input via CoreGraphics). Installation" >&2
+  echo "on $(uname -s) is not supported." >&2
+  exit 1
+fi
+
+exit 0
