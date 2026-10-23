@@ -35,6 +35,15 @@ NOTEs:
   keyboard input using macOS's CoreGraphics event APIs (CGEventPost),
   which have no equivalent on other platforms.
 
+* `OS_type: unix` excludes Windows but not Linux, since both are
+  "unix" to R. `configure` checks `uname -s` and exits 1 with an
+  informative message on anything other than Darwin, before the
+  Makevars-driven compile step (which links `-framework Cocoa
+  -framework Carbon`) ever runs. This means the package is expected
+  to fail to install on CRAN's Linux check flavor, but deliberately
+  and with a clear message, rather than with an obscure
+  linker/compiler error over missing frameworks.
+
 * There are no automated tests. The package's entire effect is
   simulating mouse/keyboard input on a live GUI session that has been
   granted Accessibility permission (System Settings > Privacy &
